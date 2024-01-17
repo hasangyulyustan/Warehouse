@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Warehouse.Application\Warehouse.Application.csproj" />
+    <ProjectReference Include="..\Warehouse.Common\Warehouse.Common.csproj" />
+    <ProjectReference Include="..\Warehouse.Domain\Warehouse.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ProcutsRepository\" />
+    <None Remove="RestClient\" />
+    <None Remove="RestClient\Products\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProcutsRepository\" />
+    <Folder Include="RestClient\" />
+    <Folder Include="RestClient\Products\" />
+  </ItemGroup>
+</Project>
