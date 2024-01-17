@@ -3,6 +3,7 @@ using Warehouse.Application.DTOs;
 using Warehouse.Application.Helpers;
 using Warehouse.Application.Interfaces.Repositories;
 using Warehouse.Application.Products.Queries;
+using Warehouse.Common.Extensions;
 using Warehouse.Domain.Entities;
 
 namespace Warehouse.Application.Products.QueryHandlers
@@ -73,7 +74,7 @@ namespace Warehouse.Application.Products.QueryHandlers
             // Instantiating the final model. Also TBD
             var response = new FilteredProductsResponseDto()
             {
-                Products = filtered.Select(x => new ProductDto(x, (request.Highlights ?? "").Split(","))).ToList(),
+                Products = filtered.Select(x => new ProductDto(x, request.Highlights.GetHighlightsArray())).ToList(),
                 Filter = filter
             };
 

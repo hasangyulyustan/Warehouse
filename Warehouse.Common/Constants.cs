@@ -2,7 +2,7 @@
 
 public static class Constants
 {
-    // Base URL of products Web Service
+    // MockyProductsUrlKey
     public static string MockyProductsUrlKey => "MockyProducts";
 }
 

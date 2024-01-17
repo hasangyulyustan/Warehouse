@@ -14,6 +14,16 @@ namespace Warehouse.Common.Extensions
 
             return inputText;
         }
+
+        public static string[] GetHighlightsArray(this string? inputText)
+        {
+            if (inputText is not null)
+            {
+                return inputText.Split(",");
+            }
+
+            return new string[0];
+        }    
     }
 }
 
