@@ -20,6 +20,7 @@ namespace Warehouse.Application.Products.QueryHandlers
         {
             var products = await _productRepository.GetAllProducts();
 
+            // Filtering products by price
             IEnumerable<Product> filtered = products;
 
             if (request.MinPrice.HasValue)
@@ -34,6 +35,7 @@ namespace Warehouse.Application.Products.QueryHandlers
 
             var ordered = products.OrderBy(product => product.Price);
 
+            // Using HashSet to get all existing sizes as a result
             HashSet<string> allSizes = new HashSet<string>();
 
             foreach (var product in ordered)
@@ -48,6 +50,7 @@ namespace Warehouse.Application.Products.QueryHandlers
                 allWords.AddRange(WordsCountHelper.GetWords(product.Description));
             }
 
+            // Getting most common 10 words skipping first 5
             var orderedWords = allWords
               .GroupBy(x => x)
               .Select(x => new {
@@ -58,6 +61,7 @@ namespace Warehouse.Application.Products.QueryHandlers
               .Skip(5)
               .Take(10);
 
+            // Instantiating filter object. Still not sure if it is the best way. TBD
             var filter = new FilterDto
             {
                 MinPrice = ordered.First().Price,
@@ -66,19 +70,12 @@ namespace Warehouse.Application.Products.QueryHandlers
                 Sizes = new List<string>(allSizes)
             };
 
-            var highlightsArr = new string[0];
-
-            if (request.Highlights is not null)
-            {
-                highlightsArr = request.Highlights.Split(",");
-            }
-
+            // Instantiating the final model. Also TBD
             var response = new FilteredProductsResponseDto()
             {
-                Products = filtered.Select(x => new ProductDto(x, highlightsArr)).ToList(),
+                Products = filtered.Select(x => new ProductDto(x, (request.Highlights ?? "").Split(","))).ToList(),
                 Filter = filter
             };
-
 
             return response;
         }
