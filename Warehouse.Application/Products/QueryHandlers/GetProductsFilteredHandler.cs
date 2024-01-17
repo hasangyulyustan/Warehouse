@@ -32,9 +32,7 @@ namespace Warehouse.Application.Products.QueryHandlers
                 filtered = filtered.Where(product => product.Price <= request.MaxPrice);
             }
 
-
             var ordered = products.OrderBy(product => product.Price);
-
 
             HashSet<string> allSizes = new HashSet<string>();
 
@@ -43,9 +41,7 @@ namespace Warehouse.Application.Products.QueryHandlers
                 allSizes.UnionWith(new HashSet<string>(product.Sizes));
             }
 
-
             var allWords = new List<string>();
-
 
             foreach (var product in products)
             {

@@ -1,5 +1,8 @@
-﻿using MediatR;
+﻿using System.Net.NetworkInformation;
+using MediatR;
 using Microsoft.Extensions.Options;
+using Serilog;
+using Warehouse.Application.Common.Logging;
 using Warehouse.Application.Interfaces.Repositories;
 using Warehouse.Application.Products.Queries;
 using Warehouse.Common;
@@ -19,13 +22,24 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IProductRepository, ProductRemoteDataRepository>();
 
 // Register mediatR
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductsFiltered).Assembly));
+
+builder.Services.AddMediatR(cfg => {
+    cfg.RegisterServicesFromAssemblies(typeof(GetProductsFiltered).Assembly);
+    cfg.AddOpenBehavior(typeof(LoggingPipelineBehavior<,>));
+});
 
 builder.Services.Configure<MockyProductsConfiguration>(builder.Configuration.GetSection(Constants.MockyProductsUrlKey));
 builder.Services.AddSingleton(resolver =>
         resolver.GetRequiredService<IOptions<MockyProductsConfiguration>>().Value);
 
+//Logging with SERILOG
+builder.Host.UseSerilog((context, configuration) =>
+    configuration.ReadFrom.Configuration(context.Configuration));
+
 var app = builder.Build();
+
+//Support to logging request with SERILOG
+app.UseSerilogRequestLogging();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

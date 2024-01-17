@@ -10,12 +10,10 @@ namespace Warehouse.API.Controllers;
 [Route("[controller]")]
 public class ProductsController : ControllerBase
 {
-    private readonly ILogger<ProductsController> _logger;
     private IMediator _mediator;
 
-    public ProductsController(IMediator mediator, ILogger<ProductsController> logger)
+    public ProductsController(IMediator mediator)
     {
-        _logger = logger;
         _mediator = mediator;
     }
 

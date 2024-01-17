@@ -14,6 +14,7 @@ public class ProductInMemoryRepository : IProductRepository
     {
         return lstProducts;
     }
+
     Task<IEnumerable<Product>> IProductRepository.GetAllProducts()
     {
         throw new NotImplementedException();
