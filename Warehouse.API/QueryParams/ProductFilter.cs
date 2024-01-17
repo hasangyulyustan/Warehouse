@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Warehouse.API.QueryParams
 {
-    public class Filter
+    public class ProductFilter
     {
         public decimal? MinPrice { get; set; }
         public decimal? MaxPrice { get; set; }
