@@ -1,5 +1,5 @@
-﻿using Warehouse.Common;
-using Warehouse.Domain.Entities;
+﻿using Warehouse.Domain.Entities;
+using Warehouse.Infrastructure.RestClient.Configuration;
 
 namespace Warehouse.Infrastructure.RestClient.Products
 {
@@ -7,9 +7,9 @@ namespace Warehouse.Infrastructure.RestClient.Products
 	{
         private readonly RestClient<Product, string> _restClient;
 
-        public ProductsRestClient()
+        public ProductsRestClient(MockyProductsConfiguration configuration)
         {
-            _restClient = new RestClient<Product, string>(Constants.BaseProductsUrl);
+            _restClient = new RestClient<Product, string>(configuration.Url);
         }
 
         public async Task<Product> Get(string id)

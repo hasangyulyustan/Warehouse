@@ -15,10 +15,12 @@
     <None Remove="ProcutsRepository\" />
     <None Remove="RestClient\" />
     <None Remove="RestClient\Products\" />
+    <None Remove="RestClient\Configuration\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ProcutsRepository\" />
     <Folder Include="RestClient\" />
     <Folder Include="RestClient\Products\" />
+    <Folder Include="RestClient\Configuration\" />
   </ItemGroup>
 </Project>
