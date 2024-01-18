@@ -22,17 +22,7 @@ namespace Warehouse.Application.Products.QueryHandlers
             var products = await _productRepository.GetAllProducts();
 
             // Filtering products by price
-            IEnumerable<Product> filtered = products;
-
-            if (request.MinPrice.HasValue)
-            {
-                filtered = filtered.Where(product => product.Price >= request.MinPrice);
-            }
-
-            if (request.MaxPrice.HasValue)
-            {
-                filtered = filtered.Where(product => product.Price <= request.MaxPrice);
-            }
+            IEnumerable<Product> filtered = products.FilterByMaxPrice(request.MaxPrice).FilterByMinPrice(request.MinPrice);
 
             var ordered = products.OrderBy(product => product.Price);
 
