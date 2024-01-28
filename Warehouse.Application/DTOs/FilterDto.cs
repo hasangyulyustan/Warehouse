@@ -1,5 +1,4 @@
-﻿using System;
-namespace Warehouse.Application.DTOs
+﻿namespace Warehouse.Application.DTOs
 {
 	public class FilterDto
 	{

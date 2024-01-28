@@ -1,5 +1,4 @@
-﻿using System;
-namespace Warehouse.Infrastructure.RestClient.Configuration
+﻿namespace Warehouse.Infrastructure.RestClient.Configuration
 {
 	public class MockyProductsConfiguration
     {

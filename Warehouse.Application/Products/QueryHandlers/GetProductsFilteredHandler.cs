@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using MediatR;
+﻿using MediatR;
 using Warehouse.Application.DTOs;
 using Warehouse.Application.Extensions;
 using Warehouse.Application.Interfaces.Repositories;

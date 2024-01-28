@@ -1,5 +1,4 @@
-﻿using System;
-namespace Warehouse.API.Models.Requests
+﻿namespace Warehouse.API.Models.Requests
 {
     public class ProductFilterRequest
     {

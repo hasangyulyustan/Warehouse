@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 using Warehouse.Application.Common.Logging;
 using Warehouse.Application.Products.Queries;
 

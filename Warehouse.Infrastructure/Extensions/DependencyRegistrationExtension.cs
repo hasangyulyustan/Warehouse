@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyModel;
 using Microsoft.Extensions.Options;
 using Warehouse.Application.Interfaces.Repositories;
 using Warehouse.Infrastructure.Constants;
