@@ -16,12 +16,14 @@
     <None Remove="RestClient\" />
     <None Remove="RestClient\Products\" />
     <None Remove="RestClient\Configuration\" />
+    <None Remove="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ProcutsRepository\" />
     <Folder Include="RestClient\" />
     <Folder Include="RestClient\Products\" />
     <Folder Include="RestClient\Configuration\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />

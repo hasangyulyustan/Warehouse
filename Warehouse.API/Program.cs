@@ -1,36 +1,27 @@
-﻿using System.Net.NetworkInformation;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Options;
 using Serilog;
 using Warehouse.Application.Common.Logging;
+using Warehouse.Application.Extensions;
 using Warehouse.Application.Interfaces.Repositories;
 using Warehouse.Application.Products.Queries;
 using Warehouse.Common;
 using Warehouse.Infrastructure;
+using Warehouse.Infrastructure.Extensions;
 using Warehouse.Infrastructure.RestClient.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container for all layers.
+builder.Services
+    .AddApplication()
+    .AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Register repositories
-builder.Services.AddScoped<IProductRepository, ProductRemoteDataRepository>();
-
-// Register mediatR
-
-builder.Services.AddMediatR(cfg => {
-    cfg.RegisterServicesFromAssemblies(typeof(GetProductsFiltered).Assembly);
-    cfg.AddOpenBehavior(typeof(LoggingPipelineBehavior<,>));
-});
-
-builder.Services.Configure<MockyProductsConfiguration>(builder.Configuration.GetSection(Constants.MockyProductsUrlKey));
-builder.Services.AddSingleton(resolver =>
-        resolver.GetRequiredService<IOptions<MockyProductsConfiguration>>().Value);
 
 //Logging with SERILOG
 builder.Host.UseSerilog((context, configuration) =>

@@ -18,6 +18,7 @@
     <None Remove="Interfaces\Repositories\" />
     <None Remove="Common\" />
     <None Remove="Common\Logging\" />
+    <None Remove="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTOs\" />
@@ -27,6 +28,7 @@
     <Folder Include="Interfaces\Repositories\" />
     <Folder Include="Common\" />
     <Folder Include="Common\Logging\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.2.0" />

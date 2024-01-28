@@ -48,9 +48,7 @@ namespace Warehouse.Application.Products.QueryHandlers
                   KeyField = x.Key,
                   Count = x.Count()
               })
-              .OrderByDescending(x => x.Count)
-              .Skip(5)
-              .Take(10);
+              .OrderByDescending(x => x.Count);
 
             // Instantiating filter object. Still not sure if it is the best way. TBD
             var filter = new FilterDto

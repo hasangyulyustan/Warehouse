@@ -1,21 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MediatR;
 using Warehouse.Application.Products.Queries;
 using Warehouse.Domain.Entities;
 using Warehouse.API.QueryParams;
+using MediatR;
 
 namespace Warehouse.API.Controllers;
 
-[ApiController]
-[Route("[controller]")]
-public class ProductsController : ControllerBase
+public class ProductsController : BaseController
 {
-    private IMediator _mediator;
-
-    public ProductsController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
+    public ProductsController(IMediator mediator) : base(mediator)
+    {}
 
     // GET: api/<ProductController>
     [HttpGet]
