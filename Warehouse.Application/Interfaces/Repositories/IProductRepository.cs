@@ -1,5 +1,4 @@
-﻿using System;
-using Warehouse.Domain.Entities;
+﻿using Warehouse.Domain.Entities;
 
 namespace Warehouse.Application.Interfaces.Repositories
 {

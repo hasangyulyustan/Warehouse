@@ -32,14 +32,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Remove="QueryParams\" />
     <None Remove="Logs\" />
     <None Remove="Models\" />
     <None Remove="Models\Requests\" />
     <None Remove="Models\Responses\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="QueryParams\" />
     <Folder Include="Logs\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Requests\" />

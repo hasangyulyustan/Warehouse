@@ -9,7 +9,7 @@ namespace Warehouse.Infrastructure.RestClient.Products
 
         public ProductsRestClient(MockyProductsConfiguration configuration)
         {
-            _restClient = new RestClient<Product, string>(configuration.Url);
+            _restClient = new RestClient<Product, string>(configuration.BaseUrl + configuration.ProductUrl);
         }
 
         public async Task<Product> Get(string id)

@@ -3,6 +3,6 @@
 public static class Constants
 {
     // MockyProductsUrlKey
-    public static string MockyProductsUrlKey => "MockyProducts";
+    public static string MockyProductsUrlKey => "MockyClient";
 }
 
