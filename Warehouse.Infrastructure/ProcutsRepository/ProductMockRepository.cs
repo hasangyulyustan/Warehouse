@@ -51,9 +51,9 @@ public class ProductMockRepository : IProductRepository
 };
 
 
-    Task<IEnumerable<Product>> IProductRepository.GetAllProducts()
+    async Task<IEnumerable<Product>> IProductRepository.GetAllProducts()
     {
-        return Task.FromResult<IEnumerable<Product>>(mockProducts);
+        return await Task.FromResult<IEnumerable<Product>>(mockProducts);
     }
 }
 
