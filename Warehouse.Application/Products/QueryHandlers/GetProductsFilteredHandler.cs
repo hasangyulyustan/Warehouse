@@ -34,10 +34,8 @@ namespace Warehouse.Application.Products.QueryHandlers
                 allSizes.UnionWith(new HashSet<string>(product.Sizes));
             }
 
-            var allWords = products.SelectMany(p => p.Description.GetWords()).ToList();
-
             // Getting most common 10 words skipping first 5
-            var commonWords = allWords.GetMostCommon10SkippingFirst5Ordered();
+            var commonWords = products.SelectMany(p => p.Description.GetWords()).ToList().GetMostCommon10SkippingFirst5Ordered();
 
             // Instantiating filter object. Still not sure if it is the best way. TBD
             var filter = new FilterDto
