@@ -6,9 +6,12 @@ namespace Warehouse.Infrastructure.RestClient.Products
 	public class ProductsRestClient
 	{
         private readonly RestClient<Product, string> _restClient;
+        private readonly MockyProductsConfiguration _configuration;
+
 
         public ProductsRestClient(MockyProductsConfiguration configuration)
         {
+            _configuration = configuration;
             _restClient = new RestClient<Product, string>(configuration.BaseUrl + configuration.ProductUrl);
         }
 

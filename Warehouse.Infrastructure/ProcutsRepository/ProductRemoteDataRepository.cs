@@ -8,17 +8,16 @@ namespace Warehouse.Infrastructure
 {
 	public class ProductRemoteDataRepository : IProductRepository
     {
-        private readonly MockyProductsConfiguration _configuration;
+        private readonly ProductsRestClient _client;
 
-        public ProductRemoteDataRepository(MockyProductsConfiguration configuration)
+        public ProductRemoteDataRepository(ProductsRestClient client)
         {
-            _configuration = configuration;
+            _client = client;
         }
 
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
-            ProductsRestClient client = new ProductsRestClient(_configuration);
-            var products = await client.GetAll();
+            var products = await _client.GetAll();
 
             return products.ToList();
         }
