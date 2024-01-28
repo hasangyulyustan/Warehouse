@@ -42,20 +42,14 @@ namespace Warehouse.Application.Products.QueryHandlers
             }
 
             // Getting most common 10 words skipping first 5
-            var orderedWords = allWords
-              .GroupBy(x => x)
-              .Select(x => new {
-                  KeyField = x.Key,
-                  Count = x.Count()
-              })
-              .OrderByDescending(x => x.Count);
+            var commonWords = allWords.GetMostCommon10SkippingFirst5Ordered();
 
             // Instantiating filter object. Still not sure if it is the best way. TBD
             var filter = new FilterDto
             {
                 MinPrice = ordered.First().Price,
                 MaxPrice = ordered.Last().Price,
-                CommonWords = orderedWords.Select(x => x.KeyField).ToList(),
+                CommonWords = commonWords,
                 Sizes = new List<string>(allSizes)
             };
 
