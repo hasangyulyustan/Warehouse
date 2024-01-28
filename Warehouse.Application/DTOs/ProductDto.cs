@@ -1,4 +1,4 @@
-﻿using Warehouse.Common.Extensions;
+﻿using Warehouse.Application.Extensions;
 using Warehouse.Domain.Entities;
 
 namespace Warehouse.Application.DTOs

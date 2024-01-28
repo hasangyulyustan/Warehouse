@@ -23,10 +23,12 @@ namespace Warehouse.Application.Common.Logging
                 "Handling {Name}. {@Date}",
                 requestName,
                 DateTime.UtcNow);
+
             var result = await next();
+
             //Response
             _logger.LogInformation(
-                "CleanArchitecture Request: {Name} {@request}. {@Date}",
+                "API Request: {Name} {@request}. {@Date}",
                 requestName,
                 request,
                 DateTime.UtcNow);

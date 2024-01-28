@@ -1,6 +1,7 @@
-﻿using MediatR;
+﻿using System.Collections.Generic;
+using MediatR;
 using Warehouse.Application.DTOs;
-using Warehouse.Application.Helpers;
+using Warehouse.Application.Extensions;
 using Warehouse.Application.Interfaces.Repositories;
 using Warehouse.Application.Products.Queries;
 using Warehouse.Common.Extensions;
@@ -38,7 +39,7 @@ namespace Warehouse.Application.Products.QueryHandlers
 
             foreach (var product in products)
             {
-                allWords.AddRange(WordsCountHelper.GetWords(product.Description));
+                allWords.AddRange(product.Description.GetWords());
             }
 
             // Getting most common 10 words skipping first 5
