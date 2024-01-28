@@ -8,7 +8,7 @@ using Warehouse.Domain.Entities;
 
 namespace Warehouse.Application.Products.QueryHandlers
 {
-    public class GetProductsFilteredHandler : IRequestHandler<GetProductsFiltered, FilteredProductsResponseDto>
+    public record GetProductsFilteredHandler : IRequestHandler<GetProductsFiltered, FilteredProductsResponseDto>
     {
         private readonly IProductRepository _productRepository;
 
@@ -34,12 +34,7 @@ namespace Warehouse.Application.Products.QueryHandlers
                 allSizes.UnionWith(new HashSet<string>(product.Sizes));
             }
 
-            var allWords = new List<string>();
-
-            foreach (var product in products)
-            {
-                allWords.AddRange(product.Description.GetWords());
-            }
+            var allWords = products.SelectMany(p => p.Description.GetWords()).ToList();
 
             // Getting most common 10 words skipping first 5
             var commonWords = allWords.GetMostCommon10SkippingFirst5Ordered();
