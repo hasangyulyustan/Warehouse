@@ -4,7 +4,7 @@ namespace Warehouse.Application.Interfaces.Repositories
 {
 	public interface IProductRepository
 	{
-        Task<IEnumerable<Product>> GetAllProducts();
+		Task<IEnumerable<Product>> GetAllProducts();
     }
 }
 

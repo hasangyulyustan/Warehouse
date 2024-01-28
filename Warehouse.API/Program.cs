@@ -1,14 +1,6 @@
-﻿using MediatR;
-using Microsoft.Extensions.Options;
-using Serilog;
-using Warehouse.Application.Common.Logging;
+﻿using Serilog;
 using Warehouse.Application.Extensions;
-using Warehouse.Application.Interfaces.Repositories;
-using Warehouse.Application.Products.Queries;
-using Warehouse.Common;
-using Warehouse.Infrastructure;
 using Warehouse.Infrastructure.Extensions;
-using Warehouse.Infrastructure.RestClient.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 

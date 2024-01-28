@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Warehouse.Application\Warehouse.Application.csproj" />
-    <ProjectReference Include="..\Warehouse.Common\Warehouse.Common.csproj" />
     <ProjectReference Include="..\Warehouse.Domain\Warehouse.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -17,6 +16,7 @@
     <None Remove="RestClient\Products\" />
     <None Remove="RestClient\Configuration\" />
     <None Remove="Extensions\" />
+    <None Remove="Constants\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ProcutsRepository\" />
@@ -24,6 +24,7 @@
     <Folder Include="RestClient\Products\" />
     <Folder Include="RestClient\Configuration\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />

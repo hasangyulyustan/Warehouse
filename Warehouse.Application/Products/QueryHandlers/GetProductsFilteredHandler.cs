@@ -4,7 +4,6 @@ using Warehouse.Application.DTOs;
 using Warehouse.Application.Extensions;
 using Warehouse.Application.Interfaces.Repositories;
 using Warehouse.Application.Products.Queries;
-using Warehouse.Common.Extensions;
 using Warehouse.Domain.Entities;
 
 namespace Warehouse.Application.Products.QueryHandlers

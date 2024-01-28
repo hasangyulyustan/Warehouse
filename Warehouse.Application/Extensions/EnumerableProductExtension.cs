@@ -1,9 +1,9 @@
 ﻿using Warehouse.Domain.Entities;
 
-namespace Warehouse.Common.Extensions
+namespace Warehouse.Application.Extensions
 {
-	public static class EnumerableExtension
-	{
+    public static class EnumerableProductExtension
+    {
         public static IEnumerable<Product> FilterByMinPrice(this IEnumerable<Product> source, decimal? value)
         {
             if (value is not null)
