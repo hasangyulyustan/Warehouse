@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Warehouse.Domain\Warehouse.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="DTOs\" />
+    <None Remove="Products\" />
+    <None Remove="Interfaces\" />
+    <None Remove="Interfaces\Repositories\" />
+    <None Remove="Common\" />
+    <None Remove="Common\Logging\" />
+    <None Remove="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="Products\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Interfaces\Repositories\" />
+    <Folder Include="Common\" />
+    <Folder Include="Common\Logging\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.14" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.3.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Warehouse.Application\Warehouse.Application.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\Warehouse.Domain\Warehouse.Domain.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\Warehouse.Infrastructure\Warehouse.Infrastructure.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Logs\" />
+    <None Remove="Models\" />
+    <None Remove="Models\Requests\" />
+    <None Remove="Models\Responses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logs\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Requests\" />
+    <Folder Include="Models\Responses\" />
+  </ItemGroup>
+</Project>
